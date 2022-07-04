@@ -22,7 +22,6 @@ const techniqueSchema = new mongoose.Schema({
   },
   ring: {
     type: String,
-    required: true,
     enum: ['Air', 'Terre', 'Feu', 'Eau', 'Vide']
   },
   activation: {

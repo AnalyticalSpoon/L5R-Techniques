@@ -3,7 +3,7 @@ const Tech = mongoose.model('Technique');
 
 const techniquesRead = (req, res) => {
   Tech
-    .find() // find all techniques in database
+    .find({}) // find all techniques in database
     .exec((err, techniques) => {
       if (!techniques) {
         return res

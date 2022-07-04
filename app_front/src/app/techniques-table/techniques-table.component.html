@@ -1,0 +1,35 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Type</th>
+      <th scope="col">Catégorie</th>
+      <th scope="col">Rang</th>
+      <th scope="col">Anneau</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let technique of techniques
+          | slice: (page - 1) * pageSize:page * pageSize
+      "
+    >
+      <td>{{ technique.name }}</td>
+      <td>{{ technique.type }}</td>
+      <td>{{ technique.category }}</td>
+      <td>{{ technique.rank }}</td>
+      <td>{{ technique.ring }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ngb-pagination
+  class="d-flex justify-content-center"
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="techniques.length"
+  [maxSize]="5"
+  [rotate]="true"
+  [boundaryLinks]="true"
+></ngb-pagination>
