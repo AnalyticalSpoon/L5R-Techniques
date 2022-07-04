@@ -16,18 +16,14 @@ export class TechniquesDataService {
     const url: string = `${this.apiBaseUrl}/techniques`;
     return this.http
       .get<Technique[]>(url)
-      .pipe(catchError(this.handleError<Technique[]>('getTechniques', [])));
+      .pipe(catchError(this.handleError<Technique[]>([])));
   }
 
   public getTechniqueById(techniqueId: string): Observable<Technique> {
     const url: string = `${this.apiBaseUrl}/techniques/${techniqueId}`;
     return this.http
       .get<Technique>(url)
-      .pipe(
-        catchError(
-          this.handleError<Technique>(`getTechniqueById id=${techniqueId}`)
-        )
-      );
+      .pipe(catchError(this.handleError<Technique>()));
   }
 
   /**
@@ -37,11 +33,8 @@ export class TechniquesDataService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T>(result?: T) {
     return (error: any): Observable<T> => {
-      // TODO: send the error to remote logging infrastructure
-      console.error(`${operation} ${error}`); // log to console instead
-
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
