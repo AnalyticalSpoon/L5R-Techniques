@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build --output-path build",
     "watch": "ng build --watch --configuration development --output-path build",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
