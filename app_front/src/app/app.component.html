@@ -1,1 +1,4 @@
-<app-techniques-table></app-techniques-table>
+<app-techniques-table
+  (selectedTechniqueEvent)="selectTechnique($event)"
+></app-techniques-table>
+<app-technique-details [technique]="selectedTechnique"></app-technique-details>

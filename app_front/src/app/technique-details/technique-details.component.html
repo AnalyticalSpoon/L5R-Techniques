@@ -1,0 +1,29 @@
+<div *ngIf="technique" class="card">
+  <div class="card-body">
+    <h4 class="card-title">{{ technique.name }}</h4>
+    <h5 class="card-subtitle mb-2">
+      {{ technique.type }}
+      <span *ngIf="technique.category">{{ technique.category }}</span> de rang
+      {{ technique.rank }}
+    </h5>
+    <p *ngIf="technique.ring" class="card-text">
+      <strong>Anneau:</strong> {{ technique.ring }}
+    </p>
+    <p *ngIf="technique.activation" class="card-text">
+      <strong>Activation:</strong>&nbsp;
+      <span
+        [innerHtml]="technique.activation | markdownStrong | changeFont"
+      ></span>
+    </p>
+    <p *ngIf="technique.effect" class="card-text">
+      <strong>Effets:</strong>&nbsp;
+      <span [innerHtml]="technique.effect | markdownStrong | changeFont"></span>
+    </p>
+    <p *ngIf="technique.opportunity" class="card-text">
+      <strong>Nouvelles opportunités:</strong>&nbsp;
+      <span
+        [innerHtml]="technique.opportunity | markdownStrong | changeFont"
+      ></span>
+    </p>
+  </div>
+</div>

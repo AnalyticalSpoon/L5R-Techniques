@@ -1,4 +1,4 @@
-<table class="table table-striped">
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th scope="col">Nom</th>
@@ -14,6 +14,8 @@
         let technique of techniques
           | slice: (page - 1) * pageSize:page * pageSize
       "
+      (click)="selectTechnique(technique)"
+      [class.table-dark]="technique === selectedTechnique"
     >
       <td>{{ technique.name }}</td>
       <td>{{ technique.type }}</td>
